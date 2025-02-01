@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Program Reader and Writer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>C Program Reader and Writer</h1>
+        <p>Enter your C program in the textarea below:</p>
+
+        <textarea id="cProgram" placeholder="Write your C code here..."></textarea><br>
+
+        <button onclick="displayCode()">Display C Code</button>
+        <button onclick="downloadCode()">Download C Program</button>
+
+        <h2>Entered C Program:</h2>
+        <pre id="output"></pre>
+    </div>
+
+    <script>
+        function displayCode() {
+            var code = document.getElementById('cProgram').value;
+            document.getElementById('output').textContent = code;
+        }
+
+        function downloadCode() {
+            var code = document.getElementById('cProgram').value;
+            var blob = new Blob([code], { type: 'text/c' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'clock.c';
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
